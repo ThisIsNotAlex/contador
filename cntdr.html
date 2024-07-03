@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Contador</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: black;
+            color: white;
+            display: grid;
+            place-items: center;
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .counter {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter-container">
+        <div class="counter">
+            <h1>Contador 1</h1>
+            <p id="resultado1">0</p>
+            <button onclick="diminuir(1)">Menos</button>
+            <button onclick="aumentar(1)">Mais</button>
+            <button onclick="zerar(1)">Zerar</button>
+        </div>
+
+        <div class="counter">
+            <h1>Contador 2</h1>
+            <p id="resultado2">0</p>
+            <button onclick="diminuir(2)">Menos</button>
+            <button onclick="aumentar(2)">Mais</button>
+            <button onclick="zerar(2)">Zerar</button>
+        </div>
+
+        <div class="counter">
+            <h1>Contador 3</h1>
+            <p id= "resultado3" >0</p>
+            <button onclick="diminuir(3)">Menos</button>
+            <button onclick="aumentar(3)">Mais</button>
+            <button onclick="zerar(3)">Zerar</button>
+        </div>
+    </div>
+
+    <script>
+        // estados dos contadores
+        let numero1 = 0;
+        let numero2 = 0;
+        let numero3 = 0;
+
+        // funções para aumentar/diminuir contadores
+        function aumentar(contador) {
+            if (contador === 1) {
+                numero1++;
+            } else if (contador === 2) {
+                numero2++;
+            } else if (contador === 3) {
+                numero3++;
+            }
+            mostrarNaTela()
+        }
+
+        function diminuir(contador) {
+            if (contador === 1) {
+                numero1--;
+            } else if (contador === 2) {
+                numero2--;
+            } else if (contador === 3) {
+                numero3--;
+            }
+            mostrarNaTela()
+        }
+        function zerar(contador) {
+            if (contador === 1) {
+                numero1 = 0;
+            } else if (contador === 2) {
+                numero2 = 0;
+            } else if (contador === 3) {
+                numero3 = 0;
+            }
+            mostrarNaTela()
+        }
+
+        // atualizar a interface com o número correto
+        function mostrarNaTela(contador) {
+            const p1 = document.querySelector("#resultado1");
+            const p2 = document.querySelector("#resultado2");
+            const p3 = document.querySelector("#resultado3");
+
+            p1.innerText = numero1;
+            p2.innerText = numero2;
+            p3.innerText = numero3;
+        }
+
+        // inicializar os contadores na tela
+        mostrarNaTela()
+    </script>
+</body>
+</html>
